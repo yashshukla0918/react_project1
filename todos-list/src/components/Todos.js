@@ -24,7 +24,7 @@ let todoStyle= {
       {
         props.todos.length === 0 ? <div className='text-center'>No task to display<br /> Please add Some</div> :
           props.todos.map((todo) => {
-            return <><TodoItem todo={todo}  onDelete={props.onDelete} /></>
+            return <><TodoItem todo={todo} editTask={props.editTask}  onDelete={props.onDelete} /></>
           })
       }
 

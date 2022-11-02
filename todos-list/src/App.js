@@ -23,43 +23,56 @@ function App() {
       desc : desc
     }
     setTask_to_be_done([...task_to_de_done,myTask]);
-    console.log(myTask);
+    
   }
 
+
+  const editTask= (todo,title,desc)=>{
+    let editedTask= {
+      sno : task_to_de_done.indexOf(todo),
+      title:title,
+      desc : desc
+    }
+    let temp = task_to_de_done.slice();
+    temp.splice(task_to_de_done.indexOf(todo),1,editedTask);
+    setTask_to_be_done(temp);
+    
+
+  }
 
 
   const [task_to_de_done, setTask_to_be_done] = useState(
     [
-      {
-        sno: 0,
-        title: "Task 1",
-        desc: "Make a quick report of Employee"
-      },
+      // {
+      //   sno: 0,
+      //   title: "Task 1",
+      //   desc: "Make a quick report of Employee"
+      // },
 
-      {
-        sno: 1,
-        title: "Task 2",
-        desc: "Divide all dividend to the stack holder"
-      }
-      ,
-      {
-        sno: 2,
-        title: "Task 3",
-        desc: "Make a excel sheet for eye patients"
-      }
-      ,
-      {
-        sno: 3,
-        title: "Task 4",
-        desc: "Make sure every doctor is comfortable here"
-      }
+      // {
+      //   sno: 1,
+      //   title: "Task 2",
+      //   desc: "Divide all dividend to the stack holder"
+      // }
+      // ,
+      // {
+      //   sno: 2,
+      //   title: "Task 3",
+      //   desc: "Make a excel sheet for eye patients"
+      // }
+      // ,
+      // {
+      //   sno: 3,
+      //   title: "Task 4",
+      //   desc: "Make sure every doctor is comfortable here"
+      // }
     ]
   );
 
   return (
     <>
       <Header title="My Todos List" isSearchBar={false} />
-      <Todos addTask={addTask} todos={task_to_de_done} onDelete={onDelete}  />
+      <Todos editTask={editTask} addTask={addTask} todos={task_to_de_done} onDelete={onDelete}  />
       <Footer />
     </>
 
