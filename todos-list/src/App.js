@@ -43,10 +43,10 @@ function App() {
     temp.splice(task_to_de_done.indexOf(todo),1,editedTask);
     setTask_to_be_done(temp);setCookies("MyData",task_to_de_done);
   }
-  const [cookies, setCookies,removeCookies] = useCookies([]);
-  const [task_to_de_done, setTask_to_be_done] = useState(cookies['MyData']);
+  const [cookies, setCookies] = useCookies([]);
+  const [task_to_de_done, setTask_to_be_done] = useState(cookies['MyData']?cookies['MyData']:[]);
   setCookies("MyData",task_to_de_done);
-
+  
   
 
   return (
