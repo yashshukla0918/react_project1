@@ -25,7 +25,7 @@ let todoStyle= {
         props.todos.length === 0 ? <div className='text-center'>No task to display<br /> Please add Some</div> :
           props.todos.map((todo)  => {
             return <React.Fragment key={todo.sno}><TodoItem todo={todo}  editTask={props.editTask}  onDelete={props.onDelete} /></React.Fragment>
-          })
+           })
       }
 
     </div>
